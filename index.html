@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dabe | DMC Labs</title>
+  <meta name="description" content="Dabe, developer of DMC Labs. Calm, thoughtful digital tools built with clarity, purpose, and real-life usefulness." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3f1ec;
+      --bg-soft: #ece8e0;
+      --panel: rgba(243, 241, 236, 0.92);
+      --panel-strong: rgba(255,255,255,0.42);
+      --text: #171717;
+      --muted: #5f5b55;
+      --line: rgba(23, 23, 23, 0.14);
+      --accent: #1f4f46;
+      --accent-soft: rgba(31, 79, 70, 0.12);
+      --shadow: 0 20px 60px rgba(34, 29, 22, 0.08);
+      --radius: 26px;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Inter', sans-serif;
+    }
+
+    body.dark {
+      --bg: #0d0e10;
+      --bg-soft: #141518;
+      --panel: rgba(18, 19, 22, 0.88);
+      --panel-strong: rgba(255,255,255,0.03);
+      --text: #f5f1ea;
+      --muted: #b5aea1;
+      --line: rgba(245, 241, 234, 0.11);
+      --accent: #9ec8bd;
+      --accent-soft: rgba(158, 200, 189, 0.11);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, var(--accent-soft), transparent 28%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      width: min(1240px, calc(100% - 28px));
+      margin: 16px auto;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      overflow: hidden;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .site {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      border-left: 1px solid var(--line);
+      border-top: 1px solid var(--line);
+    }
+
+    .full { grid-column: 1 / -1; }
+    .span-3 { grid-column: span 3; }
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .span-8 { grid-column: span 8; }
+
+    .topbar {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 30px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .meta {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .theme-toggle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.28s ease, background 0.25s ease, border-color 0.25s ease;
+      padding: 0;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(14deg) scale(1.04);
+      background: rgba(127,127,127,0.05);
+    }
+
+    .hero {
+      min-height: 360px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 44px 34px 36px;
+      display: grid;
+      align-items: end;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 70%);
+    }
+
+    .hero h1 {
+      max-width: 1100px;
+      font-family: var(--serif);
+      font-size: clamp(2.7rem, 5vw, 5.5rem);
+      line-height: 0.95;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
+      margin: 0;
+    }
+
+    .hero-sub {
+      margin-top: 18px;
+      max-width: 760px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+
+    .cell {
+      min-height: 260px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 30px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--panel);
+      transition: background 0.3s ease, color 0.3s ease, transform 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cell:hover {
+      transform: translateY(-2px);
+    }
+
+    .cell::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -60px auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, var(--accent-soft), transparent 70%);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: rgba(127,127,127,0.04);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 2.6vw, 2.65rem);
+      line-height: 1.02;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      margin: 0 0 14px;
+      max-width: 16ch;
+      text-wrap: balance;
+      position: relative;
+      z-index: 1;
+    }
+
+    .body {
+      color: var(--muted);
+      line-height: 1.78;
+      max-width: 58ch;
+      font-size: 1rem;
+      position: relative;
+      z-index: 1;
+      margin: 0;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .arrow {
+      margin-top: 20px;
+      width: 48px;
+      height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .illustration {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .illustration .art {
+      font-family: var(--serif);
+      font-size: clamp(3.3rem, 7vw, 7rem);
+      line-height: 1;
+      color: var(--text);
+      opacity: 0.92;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .illustration .caption {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .illustration:hover .art {
+      transform: translateY(-3px) scale(1.02);
+      opacity: 1;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-item {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(127,127,127,0.03);
+      font-size: 0.96rem;
+      color: var(--text);
+    }
+
+    .profile-photo {
+      padding: 0;
+      overflow: hidden;
+      min-height: 420px;
+      background: #ddd;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(0.04) contrast(1.03);
+      display: block;
+    }
+
+    .launch-card {
+      background: linear-gradient(180deg, rgba(127,127,127,0.03), rgba(127,127,127,0.01));
+    }
+
+    .launch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      background: rgba(127,127,127,0.04);
+      position: relative;
+      z-index: 1;
+    }
+
+    .launch-points {
+      display: grid;
+      gap: 10px;
+      margin: 20px 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .launch-point {
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(127,127,127,0.03);
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .launch-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .launch-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 17px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      background: transparent;
+    }
+
+    .launch-btn:hover,
+    .send-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .launch-btn.primary,
+    .send-btn {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .trust-line {
+      color: var(--muted);
+      font-size: 0.92rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .phone-mockup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(127,127,127,0.02), transparent);
+    }
+
+    .phone-frame {
+      width: 255px;
+      height: 520px;
+      border-radius: 40px;
+      border: 1px solid var(--line);
+      padding: 10px;
+      background: linear-gradient(180deg, rgba(18,18,18,0.92), rgba(38,38,38,0.95));
+      box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+      position: relative;
+      z-index: 1;
+    }
+
+    .phone-frame::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 31px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-box {
+      padding: 16px 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(127,127,127,0.03);
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .stat-box span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+      max-width: 760px;
+      width: 100%;
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .contact-form label {
+      display: grid;
+      gap: 8px;
+    }
+
+    .contact-form span {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      padding: 14px 16px;
+      border-radius: 14px;
+      font: inherit;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(127,127,127,0.04);
+      transform: translateY(-1px);
+      box-shadow: 0 0 0 3px rgba(31, 79, 70, 0.08);
+    }
+
+    body.dark .contact-form input:focus,
+    body.dark .contact-form textarea:focus {
+      box-shadow: 0 0 0 3px rgba(158, 200, 189, 0.08);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 170px;
+    }
+
+    .honeypot-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .form-actions {
+      display: grid;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .form-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .send-btn {
+      width: fit-content;
+      border: 1px solid var(--line);
+      padding: 12px 18px;
+      border-radius: 999px;
+      font: inherit;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .site { grid-template-columns: repeat(6, 1fr); }
+      .span-8, .span-7, .span-6, .span-5, .span-4, .span-3 { grid-column: span 6; }
+      .hero { min-height: 320px; }
+      .phone-mockup { min-height: 420px; }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: calc(100% - 16px); margin: 8px auto; border-radius: 22px; }
+      .topbar, .hero, .cell { padding-left: 18px; padding-right: 18px; }
+      .meta { gap: 10px; }
+      .hero h1 { font-size: clamp(2.15rem, 10vw, 3.35rem); }
+      .hero-sub { font-size: 0.96rem; }
+      .title { max-width: none; }
+      .profile-photo { min-height: 320px; }
+      .cell { min-height: 210px; padding-top: 24px; padding-bottom: 24px; }
+      .form-grid,
+      .stats-grid { grid-template-columns: 1fr; }
+      .launch-actions { flex-direction: column; }
+      .launch-btn,
+      .send-btn { width: 100%; }
+      .phone-frame { width: 220px; height: 455px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="site">
+      <div class="topbar full">
+        <div class="meta">
+          <span class="brand">Dabe · DMC Labs</span>
+          <span>Indianapolis, IN</span>
+          <span id="localTime">loading time...</span>
+        </div>
+        <div class="menu">
+          <span>Light / Dark</span>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☾</button>
+        </div>
+      </div>
+
+      <section class="hero full reveal">
+        <div>
+          <h1>Hi, I'm Dabe — a developer building calm, thoughtful digital tools with clarity, purpose, and real-life usefulness.</h1>
+          <p class="hero-sub">I create practical apps and systems through DMC Labs, with a focus on simplicity, trust, and quiet confidence. This portfolio is designed to feel human, intentional, and real.</p>
+        </div>
+      </section>
+
+      <section class="cell span-7 reveal">
+        <div>
+          <div class="kicker">About my work</div>
+          <h2 class="title">Building practical apps, web tools, and clear digital systems</h2>
+          <p class="body">I enjoy turning ideas into something working, useful, and easy to understand. My style is thoughtful and minimal, but the goal is always practical value.</p>
+          <div class="stats-grid">
+            <div class="stat-box"><strong>Mobile</strong><span>Apps that solve real tasks</span></div>
+            <div class="stat-box"><strong>Web</strong><span>Tools with clean flow</span></div>
+            <div class="stat-box"><strong>Systems</strong><span>Built for everyday use</span></div>
+          </div>
+        </div>
+        <a class="arrow" href="#contact">→</a>
+      </section>
+
+      <section class="cell span-5 illustration reveal">
+        <div>
+          <div class="art">◌</div>
+          <div class="caption">quiet focus</div>
+        </div>
+      </section>
+
+      <section class="cell span-4 illustration reveal">
+        <div>
+          <div class="art">❈</div>
+          <div class="caption">purpose</div>
+        </div>
+      </section>
+
+      <section class="cell span-8 reveal">
+        <div>
+          <div class="kicker">Approach</div>
+          <h2 class="title">Calm focus, deep thought, and practical execution</h2>
+          <p class="body">I try to bring that same rhythm into the products I build. The result is clean software that feels usable, grounded, and not overdesigned.</p>
+          <div class="feature-list">
+            <div class="feature-item">Clear interfaces over clutter</div>
+            <div class="feature-item">Useful structure over visual noise</div>
+            <div class="feature-item">Meaningful details over generic templates</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cell span-6 reveal">
+        <div>
+          <div class="kicker">Featured work</div>
+          <h2 class="title">Purpose-built tools for real everyday use</h2>
+          <p class="body">Loan Tracker, Family Budget Split, and other focused builds designed around simple workflows and real-life usefulness.</p>
+          <p class="small"><strong>Projects:</strong><br>
+<a href="https://play.google.com/apps/testing/com.dmclabs.loantracker" target="_blank">Loan Tracker (Android Testing)</a><br>
+<a href="#">Family Budget Split (Web App)</a><br>
+<a href="#">Cerebro Journal (Private + Share Mode)</a></p>
+        </div>
+      </section>
+
+      <section class="cell span-6 profile-photo reveal">
+        <img src="images\dabe-coder.jpg" alt="Dabe, developer of DMC Labs" />
+      </section>
+
+      <section class="cell span-6 launch-card reveal">
+        <div>
+          <div class="launch-badge">Now Testing · Early Access</div>
+          <h2 class="title">Simple Loan Tracker</h2>
+          <p class="body"><strong>Easy, private, and built for everyday use.</strong></p>
+          <p class="body">Track borrowers, payments, and balances in one place with a clean mobile-first experience designed for speed and simplicity.</p>
+
+          <div class="launch-points">
+            <div class="launch-point">✔ No login required</div>
+            <div class="launch-point">✔ Data stays on your device</div>
+            <div class="launch-point">✔ Quick setup</div>
+          </div>
+
+          <div class="launch-actions">
+            <a class="launch-btn primary" href="https://groups.google.com/g/loan-tracker-testers" target="_blank" rel="noopener noreferrer">Join Tester Group</a>
+            <a class="launch-btn" href="https://play.google.com/apps/testing/com.dmclabs.loantracker" target="_blank" rel="noopener noreferrer">Install the App</a>
+          </div>
+
+          <p class="trust-line">Private by design · Looking for early testers and real feedback before wider release.</p>
+        </div>
+      </section>
+
+      <section class="cell span-6 phone-mockup reveal">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <img src="images\loan-tracker-pic.jpg" alt="Loan Tracker App Preview" />
+          </div>
+        </div>
+      </section>
+
+      <section class="cell span-4 illustration reveal">
+        <div>
+          <div class="art">⌘</div>
+          <div class="caption">clarity</div>
+        </div>
+      </section>
+
+      <section class="cell span-4 illustration reveal">
+        <div>
+          <div class="art">⌁</div>
+          <div class="caption">flow</div>
+        </div>
+      </section>
+
+      <section class="cell span-4 illustration reveal">
+        <div>
+          <div class="art">☾</div>
+          <div class="caption">light / dark</div>
+        </div>
+      </section>
+
+      <section class="cell full reveal" id="contact">
+        <div>
+          <div class="kicker">Contact</div>
+          <h2 class="title">Let’s build something thoughtful and useful</h2>
+          <p class="body">If you have a project, an app idea, or a digital tool you want to bring to life, send me a message below.</p>
+        </div>
+
+        <form class="contact-form" action="https://formsubmit.co/dabewebdev@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New portfolio message for Dabe | DMC Labs">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="thanks.html">
+          <input type="hidden" name="_autoresponse" value="Thanks for reaching out to Dabe at DMC Labs. I received your message and will get back to you as soon as I can.">
+
+          <label class="honeypot-field" aria-hidden="true">
+            <span>Leave this blank</span>
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+          </label>
+
+          <div class="form-grid">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Your name" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="your@email.com" required>
+            </label>
+          </div>
+
+          <label>
+            <span>Project / Subject</span>
+            <input type="text" name="subject" placeholder="What do you want to build?" required>
+          </label>
+
+          <label>
+            <span>Message</span>
+            <textarea name="message" placeholder="Tell me about your idea, goal, or project." required></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="send-btn">Send message</button>
+            <p class="form-note">You’ll get a confirmation page after sending, and a copy of your message can also be emailed back to you.</p>
+          </div>
+        </form>
+
+        <div class="footer-note">Place <strong>dabebad.jpg</strong> and <strong>loantracker-preview.jpg</strong> in the same folder as this HTML file. Also create a simple <strong>thanks.html</strong> page so the form redirect works cleanly after submission.</div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('dmc-theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      body.classList.add('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      themeToggle.style.transform = 'rotate(180deg)';
+      setTimeout(() => {
+        themeToggle.style.transform = '';
+      }, 260);
+      localStorage.setItem('dmc-theme', body.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    const timeEl = document.getElementById('localTime');
+    const updateTime = () => {
+      const now = new Date();
+      timeEl.textContent = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+    };
+    updateTime();
+    setInterval(updateTime, 60000);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
