@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dabe | DMC Labs</title>
+
   <title>Dabe Chua | DMC Labs — Thoughtful Digital Tools</title>
-<meta
-  name="description"
-  content="Dabe Chua, developer of DMC Labs. I build calm, practical digital tools, mobile apps, and web systems with clarity, purpose, and real-life usefulness."
-/>
-<meta name="robots" content="index,follow" />
-<link rel="canonical" href="https://dabechua.com/" />
+  <meta
+    name="description"
+    content="Dabe Chua, developer of DMC Labs. I build practical digital tools, mobile apps, and web systems with clarity, purpose, and real-life usefulness."
+  />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://dabechua.com/" />
 
-<meta property="og:title" content="Dabe Chua | DMC Labs" />
-<meta property="og:description" content="Thoughtful digital tools, mobile apps, and web systems built with clarity and purpose." />
-<meta property="og:url" content="https://dabechua.com/" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://dabechua.com/images/dabe-coder.jpg" />
+  <meta property="og:title" content="Dabe Chua | DMC Labs" />
+  <meta property="og:description" content="Thoughtful digital tools, mobile apps, and web systems built with clarity and purpose." />
+  <meta property="og:url" content="https://dabechua.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dabechua.com/images/dabe-coder.jpg" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Dabe Chua | DMC Labs" />
-<meta name="twitter:description" content="Thoughtful digital tools, mobile apps, and web systems built with clarity and purpose." />
-<meta name="twitter:image" content="https://dabechua.com/images/dabe-coder.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dabe Chua | DMC Labs" />
+  <meta name="twitter:description" content="Thoughtful digital tools, mobile apps, and web systems built with clarity and purpose." />
+  <meta name="twitter:image" content="https://dabechua.com/images/dabe-coder.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #f3f1ec;
@@ -57,6 +59,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: var(--sans);
@@ -67,7 +70,17 @@
       transition: background 0.35s ease, color 0.35s ease;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(127,127,127,0.55);
+      transition: border-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    a:hover {
+      border-bottom-color: var(--text);
+      opacity: 0.78;
+    }
 
     .shell {
       width: min(1240px, calc(100% - 28px));
@@ -171,7 +184,7 @@
 
     .hero-sub {
       margin-top: 18px;
-      max-width: 760px;
+      max-width: 900px;
       color: var(--muted);
       line-height: 1.8;
       font-size: 1.02rem;
@@ -206,7 +219,8 @@
       pointer-events: none;
     }
 
-    .kicker {
+    .kicker,
+    .launch-badge {
       display: inline-flex;
       width: fit-content;
       align-items: center;
@@ -304,13 +318,41 @@
       z-index: 1;
     }
 
-    .feature-item {
-      padding: 10px 12px;
+    .feature-item,
+    .launch-point {
+      padding: 11px 14px;
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 16px;
       background: rgba(127,127,127,0.03);
-      font-size: 0.96rem;
       color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-box {
+      padding: 16px 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(127,127,127,0.03);
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .stat-box span {
+      color: var(--muted);
+      font-size: 0.84rem;
     }
 
     .profile-photo {
@@ -329,23 +371,23 @@
       display: block;
     }
 
-    .launch-card {
-      background: linear-gradient(180deg, rgba(127,127,127,0.03), rgba(127,127,127,0.01));
+    .project-preview {
+      padding: 0;
+      overflow: hidden;
+      min-height: 420px;
+      background: #0b0b0c;
     }
 
-    .launch-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 16px;
-      background: rgba(127,127,127,0.04);
-      position: relative;
-      z-index: 1;
+    .project-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .launch-card {
+      background: linear-gradient(180deg, rgba(127,127,127,0.03), rgba(127,127,127,0.01));
     }
 
     .launch-points {
@@ -356,20 +398,11 @@
       z-index: 1;
     }
 
-    .launch-point {
-      padding: 11px 14px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(127,127,127,0.03);
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
     .launch-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 16px;
+      margin: 20px 0 16px;
       position: relative;
       z-index: 1;
     }
@@ -389,6 +422,7 @@
     .launch-btn:hover,
     .send-btn:hover {
       transform: translateY(-1px);
+      opacity: 1;
     }
 
     .launch-btn.primary,
@@ -400,6 +434,7 @@
     .trust-line {
       color: var(--muted);
       font-size: 0.92rem;
+      line-height: 1.7;
       position: relative;
       z-index: 1;
     }
@@ -448,33 +483,6 @@
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 22px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .stat-box {
-      padding: 16px 14px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(127,127,127,0.03);
-    }
-
-    .stat-box strong {
-      display: block;
-      font-size: 1.15rem;
-      margin-bottom: 6px;
-    }
-
-    .stat-box span {
-      color: var(--muted);
-      font-size: 0.84rem;
     }
 
     .contact-form {
@@ -599,6 +607,7 @@
       .hero-sub { font-size: 0.96rem; }
       .title { max-width: none; }
       .profile-photo { min-height: 320px; }
+      .project-preview { min-height: 320px; }
       .cell { min-height: 210px; padding-top: 24px; padding-bottom: 24px; }
       .form-grid,
       .stats-grid { grid-template-columns: 1fr; }
@@ -608,17 +617,42 @@
       .phone-frame { width: 220px; height: 455px; }
     }
 
- a {
-  color: #ffffff;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.4);
+    .stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 18px;
+  position: relative;
+  z-index: 1;
 }
 
-a:hover {
-  border-bottom: 1px solid #ffffff;
+.stack-tags span {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(127,127,127,0.03);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.project-preview {
+  padding: 0;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+  background: #0d0e10;
 }
   </style>
 </head>
+
 <body>
   <div class="shell">
     <div class="site">
@@ -636,16 +670,20 @@ a:hover {
 
       <section class="hero full reveal">
         <div>
-          <h1>Hi, I’m Dabe. I build projects during my free time — usually after work or on my days off.</h1>
-          <p class="hero-sub"></p>One of my projects is <a href="https://mixmydog.com" target="_blank">MixMyDog.com</a>, you can mix dog breeds and actually see what they might look like. I enjoy turning simple ideas into something real. Nothing fancy — just things that work and make people smile or help in small ways.
+          <h1>Hi, I’m Dabe. I build simple projects when I have the time, energy, and focus to do it right.</h1>
+          <p class="hero-sub">
+  I’m not coding every second of the day. I have work, family, and a real need to recharge. But when I get the right focus, I like turning simple ideas into useful things people can actually try — like <a href="https://mixmydog.com" target="_blank">MixMyDog.com</a>.
+</p>
         </div>
       </section>
 
       <section class="cell span-7 reveal">
         <div>
           <div class="kicker">About my work</div>
-          <h2 class="title">Building practical apps, web tools, and clear digital systems</h2>
-          <p class="body">I enjoy turning ideas into something working, useful, and easy to understand. My style is thoughtful and minimal, but the goal is always practical value.</p>
+          <h2 class="title">Building simple apps, web tools, and digital systems</h2>
+          <p class="body">
+  I enjoy taking an idea and turning it into something that works. I’m still learning, still improving, but I like building tools that are clear, useful, and easy for regular people to understand.
+</p>
           <div class="stats-grid">
             <div class="stat-box"><strong>Mobile</strong><span>Apps that solve real tasks</span></div>
             <div class="stat-box"><strong>Web</strong><span>Tools with clean flow</span></div>
@@ -672,12 +710,12 @@ a:hover {
       <section class="cell span-8 reveal">
         <div>
           <div class="kicker">Approach</div>
-          <h2 class="title">Calm focus, deep thought, and practical execution</h2>
-          <p class="body">I try to bring that same rhythm into the products I build. The result is clean software that feels usable, grounded, and not overdesigned.</p>
+          <h2 class="title">Calm focus, deep thought, and steady execution</h2>
+          <p class="body">I try to build the same way I live — focused, practical, and not rushed. I care about simple layouts, useful features, and small details that make a project feel easier to use.</p>
           <div class="feature-list">
-            <div class="feature-item">Clear interfaces over clutter</div>
-            <div class="feature-item">Useful structure over visual noise</div>
-            <div class="feature-item">Meaningful details over generic templates</div>
+            <div class="feature-item">Simple layouts over clutter</div>
+            <div class="feature-item">Useful features over random extras</div>
+            <div class="feature-item">Real projects over perfect ideas</div>
           </div>
         </div>
       </section>
@@ -685,39 +723,76 @@ a:hover {
       <section class="cell span-6 reveal">
         <div>
           <div class="kicker">Featured work</div>
-          <h2 class="title">Purpose-built tools for real everyday use</h2>
-          <p class="body">Loan Tracker, Family Budget Split, and other focused builds designed around simple workflows and real-life usefulness.</p>
-        
-          <div class="mixmydog-inline"> 
-            <span class="tag">Featured</span>
-            <h3>MixMyDog</h3>
-            <p>
-              Mix two dog breeds and instantly see what they might look like.
-              A fun, simple project built for dog lovers.
-            </p>
-            <a href="https://mixmydog.com" target="_blank">Try it →</a>
-          </div>
-          
-          
-          
+          <h2 class="title">Projectss I've built and launched</h2>
+          <p class="body">These are some of the apps and web tools I’ve worked on, from simple loan tracking to AI-powered dog breed mixing.</p>
+
           <p class="small"><strong>Projects:</strong><br>
-<a href="https://play.google.com/apps/testing/com.dmclabs.loantracker" target="_blank">Loan Tracker (Android Testing)</a><br>
-<a href="https://family-bills-simple.vercel.app">Family Budget Split (Web App)</a><br>
-<a href="https://cerebro-nine-pearl.vercel.app/">Cerebro Journal (Private + Share Mode)</a><br>
-<a href="https://lending-tracker-eight.vercel.app/">QSP Lending Tracker</a><br>
-<a href="https://loan-tracker-tau.vercel.app/">Loan Tracker (Web app)</a></p>
+            <a href="https://mixmydog.com" target="_blank" rel="noopener noreferrer">⭐ MixMyDog (Live Web App)</a><br>
+            <a href="https://play.google.com/store/apps/details?id=com.dmclabs.loantracker&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Loan Tracker (Android App • Live)</a><br>
+            <a href="https://family-bills-simple.vercel.app" target="_blank" rel="noopener noreferrer">Family Budget Split (Web App)</a><br>
+            <a href="https://cerebro-nine-pearl.vercel.app/" target="_blank" rel="noopener noreferrer">Cerebro Journal (Private + Share Mode)</a><br>
+            <a href="https://lending-tracker-eight.vercel.app/" target="_blank" rel="noopener noreferrer">QSP Lending Tracker</a><br>
+            <a href="https://loan-tracker-tau.vercel.app/" target="_blank" rel="noopener noreferrer">Loan Tracker (Web App)</a>
+          </p>
         </div>
       </section>
 
       <section class="cell span-6 profile-photo reveal">
-        <img src="images\dabe-coder.jpg" alt="Dabe, developer of DMC Labs" />
+        <img src="images/dabe-coder.jpg" alt="Dabe, developer of DMC Labs" />
       </section>
+
       <section class="cell span-6 launch-card reveal">
         <div>
-          <div class="launch-badge">Now Testing · Early Access</div>
+          <div class="launch-badge">Live Project • AI Dog Breed Mixer</div>
+
+          <h2 class="title">MixMyDog</h2>
+
+          <p class="body">
+            MixMyDog lets people mix two dog breeds and see what the result might look like. It started as a fun idea, but it became a real web app for dog lovers, breeders, and curious pet owners.
+          </p>
+
+          <div class="launch-points">
+            <div class="launch-point">✔ Mix two dog breeds</div>
+            <div class="launch-point">✔ Generate a visual preview</div>
+            <div class="launch-point">✔ Fun for dog lovers and breeders</div>
+          </div>
+
+          <p class="small">
+            <strong>Best for:</strong> Dog lovers, breeders, and anyone curious about what different breed mixes could look like.
+          </p>
+
+          <div class="stack-tags">
+            <span>AI Image Generation</span>
+            <span>Web App</span>
+            <span>Dog Breeds</span>
+            <span>Interactive UX</span>
+          </div>
+
+          <div class="launch-actions">
+      <a href="https://mixmydog.com" target="_blank" rel="noopener noreferrer" class="launch-btn primary">Live Site</a>
+      <a href="https://github.com/dabewebdev" target="_blank" class="launch-btn">GitHub</a>
+    </div>
+
+          <p class="trust-line">
+      Built through DMC Labs as a fun project that turns curiosity into something visual and easy to try.
+    </p>
+  </div>
+</section>
+
+      <section class="cell span-6 project-preview reveal">
+        <img src="images/mixmydog-preview.png" alt="MixMyDog dog breed mixer preview" />
+      </section>
+
+      <section class="cell span-6 launch-card reveal">
+        <div>
+          <div class="launch-badge">Live on Google Play</div>
+
           <h2 class="title">Simple Loan Tracker</h2>
+
           <p class="body"><strong>Easy, private, and built for everyday use.</strong></p>
-          <p class="body">Track borrowers, payments, and balances in one place with a clean mobile-first experience designed for speed and simplicity.</p>
+          <p class="body">
+  A simple Android app for tracking borrowers, payments, and balances. I built it to be easy, private, and useful for everyday lending situations.
+</p>
 
           <div class="launch-points">
             <div class="launch-point">✔ No login required</div>
@@ -726,18 +801,19 @@ a:hover {
           </div>
 
           <div class="launch-actions">
-            <a class="launch-btn primary" href="https://groups.google.com/g/loan-tracker-testers" target="_blank" rel="noopener noreferrer">Join Tester Group</a>
-            <a class="launch-btn" href="https://play.google.com/apps/testing/com.dmclabs.loantracker" target="_blank" rel="noopener noreferrer">Install the App</a>
+            <a class="launch-btn primary" href="https://play.google.com/store/apps/details?id=com.dmclabs.loantracker" target="_blank" rel="noopener noreferrer">
+  Get it on Google Play
+</a>
           </div>
 
-          <p class="trust-line">Private by design · Looking for early testers and real feedback before wider release.</p>
+          <p class="trust-line">Now available publicly on Google Play.</p>
         </div>
       </section>
 
       <section class="cell span-6 phone-mockup reveal">
         <div class="phone-frame">
           <div class="phone-screen">
-            <img src="images\loan-tracker-pic.jpg" alt="Loan Tracker App Preview" />
+            <img src="images/loan-tracker-pic.jpg" alt="Loan Tracker App Preview" />
           </div>
         </div>
       </section>
@@ -808,7 +884,8 @@ a:hover {
             <p class="form-note">Your message will be sent directly to me. I typically respond within 24–48 hours.</p>
           </div>
         </form>
-          <p class="footer">© 2026 DMC Labs</p>
+
+        <p class="footer-note">© 2026 DMC Labs</p>
       </section>
     </div>
   </div>
