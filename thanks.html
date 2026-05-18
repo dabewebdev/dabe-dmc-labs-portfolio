@@ -1,11 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Message Sent</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Sent | DMC Labs</title>
+  <style>
+    :root {
+      --bg: #f3f1ec;
+      --text: #171717;
+      --muted: #5f5b55;
+      --line: rgba(23, 23, 23, 0.14);
+      --accent: #1f4f46;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      color: var(--text);
+      font-family: var(--sans);
+      background: radial-gradient(circle at top left, rgba(31, 79, 70, 0.12), transparent 30%), var(--bg);
+    }
+
+    main {
+      width: min(620px, 100%);
+      padding: 42px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.36);
+      box-shadow: 0 20px 60px rgba(34, 29, 22, 0.08);
+      text-align: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    p {
+      margin: 0 auto 26px;
+      max-width: 460px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 999px;
+      background: var(--text);
+      color: var(--bg);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
 </head>
-<body style="font-family: sans-serif; text-align:center; padding:50px;">
-  <h1>Message Sent</h1>
-  <p>Thanks for reaching out. I’ll get back to you soon.</p>
-  <a href="/">Back to home</a>
+<body>
+  <main>
+    <div class="kicker">Message Sent</div>
+    <h1>Thank you.</h1>
+    <p>Your message was submitted. I’ll read it and get back to you when time allows.</p>
+    <a href="/">Back to home</a>
+  </main>
 </body>
 </html>

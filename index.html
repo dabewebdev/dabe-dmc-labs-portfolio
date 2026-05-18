@@ -592,6 +592,71 @@
       transform: translateY(0);
     }
 
+
+
+    .project-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-link-card {
+      display: grid;
+      gap: 8px;
+      min-height: 112px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(127,127,127,0.025);
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .project-link-card:hover {
+      transform: translateY(-2px);
+      background: rgba(127,127,127,0.045);
+      border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+      opacity: 1;
+    }
+
+    .project-link-card strong {
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    .project-link-card span {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
+    .section-note {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .status-dot::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .project-preview.soft-preview img {
+      padding: 22px;
+      border-radius: 38px;
+    }
+
     @media (max-width: 980px) {
       .site { grid-template-columns: repeat(6, 1fr); }
       .span-8, .span-7, .span-6, .span-5, .span-4, .span-3 { grid-column: span 6; }
@@ -610,7 +675,8 @@
       .project-preview { min-height: 320px; }
       .cell { min-height: 210px; padding-top: 24px; padding-bottom: 24px; }
       .form-grid,
-      .stats-grid { grid-template-columns: 1fr; }
+      .stats-grid,
+      .project-links { grid-template-columns: 1fr; }
       .launch-actions { flex-direction: column; }
       .launch-btn,
       .send-btn { width: 100%; }
@@ -723,17 +789,35 @@
       <section class="cell span-6 reveal">
         <div>
           <div class="kicker">Featured work</div>
-          <h2 class="title">Projectss I've built and launched</h2>
-          <p class="body">These are some of the apps and web tools I’ve worked on, from simple loan tracking to AI-powered dog breed mixing.</p>
+          <h2 class="title">Projects I’ve built and launched</h2>
+          <p class="body">A small collection of real apps, experiments, and tools I’ve built while learning, testing ideas, and bringing useful projects online.</p>
 
-          <p class="small"><strong>Projects:</strong><br>
-            <a href="https://mixmydog.com" target="_blank" rel="noopener noreferrer">⭐ MixMyDog (Live Web App)</a><br>
-            <a href="https://play.google.com/store/apps/details?id=com.dmclabs.loantracker&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Loan Tracker (Android App • Live)</a><br>
-            <a href="https://family-bills-simple.vercel.app" target="_blank" rel="noopener noreferrer">Family Budget Split (Web App)</a><br>
-            <a href="https://cerebro-nine-pearl.vercel.app/" target="_blank" rel="noopener noreferrer">Cerebro Journal (Private + Share Mode)</a><br>
-            <a href="https://lending-tracker-eight.vercel.app/" target="_blank" rel="noopener noreferrer">QSP Lending Tracker</a><br>
-            <a href="https://loan-tracker-tau.vercel.app/" target="_blank" rel="noopener noreferrer">Loan Tracker (Web App)</a>
-          </p>
+          <div class="project-links" aria-label="Project links">
+            <a class="project-link-card" href="https://mixmydog.com" target="_blank" rel="noopener noreferrer">
+              <strong>MixMyDog</strong>
+              <span>Live AI dog breed mixer web app.</span>
+            </a>
+            <a class="project-link-card" href="https://play.google.com/store/apps/details?id=com.dmclabs.loantracker&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+              <strong>Loan Tracker</strong>
+              <span>Android app live on Google Play.</span>
+            </a>
+            <a class="project-link-card" href="https://family-bills-simple.vercel.app" target="_blank" rel="noopener noreferrer">
+              <strong>Family Budget Split</strong>
+              <span>Simple tool for splitting shared bills.</span>
+            </a>
+            <a class="project-link-card" href="https://cerebro-nine-pearl.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <strong>Cerebro Journal</strong>
+              <span>Private journal with share mode.</span>
+            </a>
+            <a class="project-link-card" href="https://lending-tracker-eight.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <strong>QSP Lending Tracker</strong>
+              <span>Loan tracking concept for lending records.</span>
+            </a>
+            <a class="project-link-card" href="https://loan-tracker-tau.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <strong>Loan Tracker Web</strong>
+              <span>Browser-based version of loan tracking.</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -748,17 +832,17 @@
           <h2 class="title">MixMyDog</h2>
 
           <p class="body">
-            MixMyDog lets people mix two dog breeds and see what the result might look like. It started as a fun idea, but it became a real web app for dog lovers, breeders, and curious pet owners.
+            An AI-powered web app that helps people explore possible dog breed mixes through interactive previews and visual generation.
           </p>
 
           <div class="launch-points">
             <div class="launch-point">✔ Mix two dog breeds</div>
             <div class="launch-point">✔ Generate a visual preview</div>
-            <div class="launch-point">✔ Fun for dog lovers and breeders</div>
+            <div class="launch-point">✔ Built for dog lovers, breeders, and curious pet owners</div>
           </div>
 
           <p class="small">
-            <strong>Best for:</strong> Dog lovers, breeders, and anyone curious about what different breed mixes could look like.
+            <strong>Best for:</strong> Exploring fun breed combinations in a simple, visual way.
           </p>
 
           <div class="stack-tags">
@@ -774,10 +858,8 @@
     </div>
 
           <p class="trust-line">
-      <p class="trust-line">
-      My brother gave me the idea, my friend helped make it look better, and I helped bring it online through DMC Labs.
-</p>
-    </p>
+            What started as a simple idea between family and friends slowly became a real public-facing project through DMC Labs.
+          </p>
   </div>
 </section>
 
@@ -820,6 +902,48 @@
         </div>
       </section>
 
+      <section class="cell span-6 launch-card reveal">
+        <div>
+          <div class="launch-badge status-dot">Android App • In Testing</div>
+
+          <h2 class="title">GlobeWave</h2>
+
+          <p class="body">
+            A simple world radio app for discovering stations from different countries through a clean listening experience. It is currently being refined and tested for Android.
+          </p>
+
+          <div class="launch-points">
+            <div class="launch-point">✔ Global radio station discovery</div>
+            <div class="launch-point">✔ Favorites and simple playback flow</div>
+            <div class="launch-point">✔ Android version in testing</div>
+          </div>
+
+          <div class="stack-tags">
+            <span>Android</span>
+            <span>Radio API</span>
+            <span>Mobile UI</span>
+            <span>In Testing</span>
+          </div>
+
+          <div class="launch-actions">
+            <a class="launch-btn primary" href="https://globewave.vercel.app/" target="_blank" rel="noopener noreferrer">Live Web Preview</a>
+            <a class="launch-btn" href="https://github.com/dabewebdev" target="_blank" rel="noopener noreferrer">My GitHub</a>
+          </div>
+
+          <p class="trust-line">
+            I’m keeping this one honest on the portfolio: it is real, active, and still being improved before a wider release.
+          </p>
+        </div>
+      </section>
+
+      <section class="cell span-6 illustration reveal">
+        <div>
+          <div class="art">◍</div>
+          <div class="caption">GlobeWave testing</div>
+          <p class="section-note">A calmer way to show projects that are still growing: clear status, simple purpose, and no fake hype.</p>
+        </div>
+      </section>
+
       <section class="cell span-4 illustration reveal">
         <div>
           <div class="art">⌘</div>
@@ -848,12 +972,9 @@
           <p class="body">If you have a project, an app idea, or a digital tool you want to bring to life, send me a message below.</p>
         </div>
 
-        <form class="contact-form" action="https://formsubmit.co/dabewebdev@gmail.com" method="POST">
+        <form class="contact-form" action="https://formspree.io/f/xpqnzjjo" method="POST">
           <input type="hidden" name="_subject" value="New portfolio message for Dabe | DMC Labs">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://dabechua.com/thanks.html">
-          <input type="hidden" name="_autoresponse" value="Thanks for reaching out to Dabe at DMC Labs. I received your message and will get back to you as soon as I can.">
+          
 
           <label class="honeypot-field" aria-hidden="true">
             <span>Leave this blank</span>
@@ -883,7 +1004,7 @@
 
           <div class="form-actions">
             <button type="submit" class="send-btn">Send message</button>
-            <p class="form-note">Your message will be sent directly to me. I typically respond within 24–48 hours.</p>
+            <p class="form-note">Your message will be sent directly to me. I usually respond within a few days when time allows.</p>
           </div>
         </form>
 
