@@ -4,23 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Dabe Chua | DMC Labs — Thoughtful Digital Tools</title>
-  <meta
-    name="description"
-    content="Dabe Chua, developer of DMC Labs. I build practical digital tools, mobile apps, and web systems with clarity, purpose, and real-life usefulness."
-  />
+  <title>Dabe Chua | DMC Labs — Practical Apps & Digital Tools</title>
+  <meta name="description" content="Dabe Chua builds practical web apps, Android apps, business tools, and small digital systems through DMC Labs." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://dabechua.com/" />
 
   <meta property="og:title" content="Dabe Chua | DMC Labs" />
-  <meta property="og:description" content="Thoughtful digital tools, mobile apps, and web systems built with clarity and purpose." />
+  <meta property="og:description" content="Practical apps, web tools, and digital systems built around real problems and simple ideas." />
   <meta property="og:url" content="https://dabechua.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://dabechua.com/images/dabe-coder.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dabe Chua | DMC Labs" />
-  <meta name="twitter:description" content="Thoughtful digital tools, mobile apps, and web systems built with clarity and purpose." />
+  <meta name="twitter:description" content="Practical apps, web tools, and digital systems built around real problems and simple ideas." />
   <meta name="twitter:image" content="https://dabechua.com/images/dabe-coder.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +28,14 @@
     :root {
       --bg: #f3f1ec;
       --bg-soft: #ece8e0;
-      --panel: rgba(243, 241, 236, 0.92);
+      --panel: rgba(243, 241, 236, 0.94);
       --panel-strong: rgba(255,255,255,0.42);
       --text: #171717;
       --muted: #5f5b55;
-      --line: rgba(23, 23, 23, 0.14);
+      --line: rgba(23,23,23,0.14);
       --accent: #1f4f46;
-      --accent-soft: rgba(31, 79, 70, 0.12);
-      --shadow: 0 20px 60px rgba(34, 29, 22, 0.08);
-      --radius: 26px;
+      --accent-soft: rgba(31,79,70,0.12);
+      --shadow: 0 20px 60px rgba(34,29,22,0.08);
       --serif: 'Cormorant Garamond', serif;
       --sans: 'Inter', sans-serif;
     }
@@ -47,14 +43,14 @@
     body.dark {
       --bg: #0d0e10;
       --bg-soft: #141518;
-      --panel: rgba(18, 19, 22, 0.88);
+      --panel: rgba(18,19,22,0.9);
       --panel-strong: rgba(255,255,255,0.03);
       --text: #f5f1ea;
       --muted: #b5aea1;
-      --line: rgba(245, 241, 234, 0.11);
+      --line: rgba(245,241,234,0.11);
       --accent: #9ec8bd;
-      --accent-soft: rgba(158, 200, 189, 0.11);
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      --accent-soft: rgba(158,200,189,0.11);
+      --shadow: 0 24px 70px rgba(0,0,0,0.35);
     }
 
     * { box-sizing: border-box; }
@@ -67,20 +63,17 @@
       background:
         radial-gradient(circle at top left, var(--accent-soft), transparent 28%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
-      transition: background 0.35s ease, color 0.35s ease;
+      transition: background .35s ease, color .35s ease;
     }
 
     a {
       color: inherit;
       text-decoration: none;
-      border-bottom: 1px solid rgba(127,127,127,0.55);
-      transition: border-color 0.2s ease, opacity 0.2s ease;
+      border-bottom: 1px solid rgba(127,127,127,.55);
+      transition: border-color .2s ease, opacity .2s ease, transform .2s ease;
     }
 
-    a:hover {
-      border-bottom-color: var(--text);
-      opacity: 0.78;
-    }
+    a:hover { border-bottom-color: var(--text); opacity: .82; }
 
     .shell {
       width: min(1240px, calc(100% - 28px));
@@ -102,7 +95,6 @@
     }
 
     .full { grid-column: 1 / -1; }
-    .span-3 { grid-column: span 3; }
     .span-4 { grid-column: span 4; }
     .span-5 { grid-column: span 5; }
     .span-6 { grid-column: span 6; }
@@ -117,30 +109,19 @@
       padding: 18px 30px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,.02);
     }
 
-    .meta {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .brand {
-      color: var(--text);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .menu {
+    .meta, .menu {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+      flex-wrap: wrap;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: .92rem;
     }
+
+    .brand { color: var(--text); font-weight: 600; letter-spacing: .02em; }
 
     .theme-toggle {
       width: 38px;
@@ -152,38 +133,37 @@
       display: grid;
       place-items: center;
       cursor: pointer;
-      transition: transform 0.28s ease, background 0.25s ease, border-color 0.25s ease;
-      padding: 0;
+      transition: transform .28s ease, background .25s ease;
     }
 
     .theme-toggle:hover {
       transform: rotate(14deg) scale(1.04);
-      background: rgba(127,127,127,0.05);
+      background: rgba(127,127,127,.05);
     }
 
     .hero {
-      min-height: 360px;
+      min-height: 390px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      padding: 44px 34px 36px;
+      padding: 48px 34px 38px;
       display: grid;
       align-items: end;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 70%);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 70%);
     }
 
     .hero h1 {
-      max-width: 1100px;
+      max-width: 1120px;
       font-family: var(--serif);
       font-size: clamp(2.7rem, 5vw, 5.5rem);
-      line-height: 0.95;
+      line-height: .95;
       font-weight: 500;
-      letter-spacing: -0.04em;
+      letter-spacing: -.04em;
       text-wrap: balance;
       margin: 0;
     }
 
     .hero-sub {
-      margin-top: 18px;
+      margin: 18px 0 0;
       max-width: 900px;
       color: var(--muted);
       line-height: 1.8;
@@ -199,14 +179,12 @@
       flex-direction: column;
       justify-content: space-between;
       background: var(--panel);
-      transition: background 0.3s ease, color 0.3s ease, transform 0.25s ease;
+      transition: background .3s ease, color .3s ease, transform .25s ease;
       position: relative;
       overflow: hidden;
     }
 
-    .cell:hover {
-      transform: translateY(-2px);
-    }
+    .cell:hover { transform: translateY(-2px); }
 
     .cell::after {
       content: "";
@@ -215,12 +193,11 @@
       width: 180px;
       height: 180px;
       background: radial-gradient(circle, var(--accent-soft), transparent 70%);
-      opacity: 0.5;
+      opacity: .5;
       pointer-events: none;
     }
 
-    .kicker,
-    .launch-badge {
+    .kicker, .status {
       display: inline-flex;
       width: fit-content;
       align-items: center;
@@ -228,22 +205,36 @@
       padding: 8px 12px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: .8rem;
       color: var(--muted);
-      background: rgba(127,127,127,0.04);
+      background: rgba(127,127,127,.04);
       margin-bottom: 16px;
       position: relative;
       z-index: 1;
     }
 
+    .status.live::before,
+    .status.testing::before,
+    .status.private::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      display: inline-block;
+      background: var(--accent);
+    }
+
+    .status.testing::before { opacity: .65; }
+    .status.private::before { background: var(--muted); }
+
     .title {
       font-family: var(--serif);
-      font-size: clamp(1.8rem, 2.6vw, 2.65rem);
+      font-size: clamp(1.9rem, 2.6vw, 2.7rem);
       line-height: 1.02;
       font-weight: 500;
-      letter-spacing: -0.035em;
+      letter-spacing: -.035em;
       margin: 0 0 14px;
-      max-width: 16ch;
+      max-width: 18ch;
       text-wrap: balance;
       position: relative;
       z-index: 1;
@@ -252,7 +243,7 @@
     .body {
       color: var(--muted);
       line-height: 1.78;
-      max-width: 58ch;
+      max-width: 62ch;
       font-size: 1rem;
       position: relative;
       z-index: 1;
@@ -261,71 +252,11 @@
 
     .small {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: .9rem;
       line-height: 1.7;
       margin-top: 12px;
       position: relative;
       z-index: 1;
-    }
-
-    .arrow {
-      margin-top: 20px;
-      width: 48px;
-      height: 32px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .illustration {
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .illustration .art {
-      font-family: var(--serif);
-      font-size: clamp(3.3rem, 7vw, 7rem);
-      line-height: 1;
-      color: var(--text);
-      opacity: 0.92;
-      transition: transform 0.35s ease, opacity 0.35s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    .illustration .caption {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: var(--muted);
-      position: relative;
-      z-index: 1;
-    }
-
-    .illustration:hover .art {
-      transform: translateY(-3px) scale(1.02);
-      opacity: 1;
-    }
-
-    .feature-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 18px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .feature-item,
-    .launch-point {
-      padding: 11px 14px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(127,127,127,0.03);
-      color: var(--text);
-      font-size: 0.95rem;
     }
 
     .stats-grid {
@@ -341,156 +272,184 @@
       padding: 16px 14px;
       border: 1px solid var(--line);
       border-radius: 18px;
-      background: rgba(127,127,127,0.03);
+      background: rgba(127,127,127,.03);
     }
 
-    .stat-box strong {
-      display: block;
-      font-size: 1.15rem;
-      margin-bottom: 6px;
+    .stat-box strong { display: block; font-size: 1.08rem; margin-bottom: 6px; }
+    .stat-box span { color: var(--muted); font-size: .84rem; }
+
+    .illustration {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .stat-box span {
+    .illustration .art {
+      font-family: var(--serif);
+      font-size: clamp(3.3rem, 7vw, 7rem);
+      line-height: 1;
+      opacity: .92;
+      position: relative;
+      z-index: 1;
+    }
+
+    .illustration .caption {
+      margin-top: 10px;
+      font-size: .9rem;
       color: var(--muted);
-      font-size: 0.84rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .profile-photo {
+    .profile-photo, .project-preview {
       padding: 0;
       overflow: hidden;
-      min-height: 420px;
-      background: #ddd;
+      min-height: 430px;
+      background: #0d0e10;
     }
 
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      filter: grayscale(0.04) contrast(1.03);
-      display: block;
-    }
-
-    .project-preview {
-      padding: 0;
-      overflow: hidden;
-      min-height: 420px;
-      background: #0b0b0c;
-    }
-
+    .profile-photo img,
     .project-preview img {
       width: 100%;
       height: 100%;
+      min-height: 430px;
       object-fit: cover;
       object-position: top center;
       display: block;
     }
 
-    .launch-card {
-      background: linear-gradient(180deg, rgba(127,127,127,0.03), rgba(127,127,127,0.01));
-    }
+    .project-preview img { object-fit: contain; }
 
-    .launch-points {
+    .project-grid {
       display: grid;
-      gap: 10px;
-      margin: 20px 0 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .launch-actions {
-      display: flex;
-      flex-wrap: wrap;
+      grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 12px;
-      margin: 20px 0 16px;
+      margin-top: 22px;
       position: relative;
       z-index: 1;
     }
 
-    .launch-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 17px;
-      border-radius: 999px;
+    .project-card {
+      min-height: 165px;
+      padding: 18px;
       border: 1px solid var(--line);
-      color: var(--text);
-      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-      background: transparent;
+      border-radius: 20px;
+      background: rgba(127,127,127,.025);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      transition: transform .22s ease, background .22s ease, border-color .22s ease;
     }
 
-    .launch-btn:hover,
-    .send-btn:hover {
-      transform: translateY(-1px);
+    .project-card:hover {
+      transform: translateY(-2px);
+      background: rgba(127,127,127,.045);
+      border-color: var(--accent);
       opacity: 1;
     }
 
-    .launch-btn.primary,
-    .send-btn {
+    .project-card.no-link:hover { border-color: var(--line); }
+
+    .project-card h3 {
+      margin: 0 0 7px;
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 500;
+      letter-spacing: -.02em;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: .9rem;
+    }
+
+    .mini-meta {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .mini-meta span {
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-item {
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(127,127,127,.03);
+      font-size: .95rem;
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stack-tags span {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(127,127,127,.03);
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 17px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .btn.primary {
       background: var(--text);
       color: var(--bg);
     }
 
-    .trust-line {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
-    }
+    .btn:hover { transform: translateY(-1px); opacity: .9; }
 
-    .phone-mockup {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(180deg, rgba(127,127,127,0.02), transparent);
-    }
-
-    .phone-frame {
-      width: 255px;
-      height: 520px;
-      border-radius: 40px;
-      border: 1px solid var(--line);
-      padding: 10px;
-      background: linear-gradient(180deg, rgba(18,18,18,0.92), rgba(38,38,38,0.95));
-      box-shadow: 0 16px 40px rgba(0,0,0,0.18);
-      position: relative;
-      z-index: 1;
-    }
-
-    .phone-frame::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.14);
-    }
-
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      border-radius: 31px;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .phone-screen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .section-head { padding-bottom: 18px; }
 
     .contact-form {
       display: grid;
       gap: 16px;
       max-width: 760px;
       width: 100%;
-      margin-top: 12px;
+      margin-top: 18px;
       position: relative;
       z-index: 1;
     }
@@ -501,15 +460,8 @@
       gap: 14px;
     }
 
-    .contact-form label {
-      display: grid;
-      gap: 8px;
-    }
-
-    .contact-form span {
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
+    .contact-form label { display: grid; gap: 8px; }
+    .contact-form span { font-size: .92rem; color: var(--muted); }
 
     .contact-form input,
     .contact-form textarea {
@@ -520,27 +472,17 @@
       padding: 14px 16px;
       border-radius: 14px;
       font: inherit;
-      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .contact-form input:focus,
     .contact-form textarea:focus {
       outline: none;
       border-color: var(--accent);
-      background: rgba(127,127,127,0.04);
-      transform: translateY(-1px);
-      box-shadow: 0 0 0 3px rgba(31, 79, 70, 0.08);
+      background: rgba(127,127,127,.04);
+      box-shadow: 0 0 0 3px var(--accent-soft);
     }
 
-    body.dark .contact-form input:focus,
-    body.dark .contact-form textarea:focus {
-      box-shadow: 0 0 0 3px rgba(158, 200, 189, 0.08);
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 170px;
-    }
+    .contact-form textarea { resize: vertical; min-height: 170px; }
 
     .honeypot-field {
       position: absolute;
@@ -550,19 +492,6 @@
       overflow: hidden;
     }
 
-    .form-actions {
-      display: grid;
-      gap: 10px;
-      align-items: start;
-    }
-
-    .form-note {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
     .send-btn {
       width: fit-content;
       border: 1px solid var(--line);
@@ -570,13 +499,14 @@
       border-radius: 999px;
       font: inherit;
       cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      background: var(--text);
+      color: var(--bg);
     }
 
     .footer-note {
       color: var(--muted);
-      font-size: 0.92rem;
-      margin-top: 10px;
+      font-size: .92rem;
+      margin-top: 20px;
       position: relative;
       z-index: 1;
     }
@@ -584,7 +514,7 @@
     .reveal {
       opacity: 0;
       transform: translateY(18px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition: opacity .7s ease, transform .7s ease;
     }
 
     .reveal.show {
@@ -592,136 +522,34 @@
       transform: translateY(0);
     }
 
-
-
-    .project-links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .project-link-card {
-      display: grid;
-      gap: 8px;
-      min-height: 112px;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(127,127,127,0.025);
-      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
-    }
-
-    .project-link-card:hover {
-      transform: translateY(-2px);
-      background: rgba(127,127,127,0.045);
-      border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
-      opacity: 1;
-    }
-
-    .project-link-card strong {
-      font-size: 0.98rem;
-      color: var(--text);
-    }
-
-    .project-link-card span {
-      color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.55;
-    }
-
-    .section-note {
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.93rem;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
-    }
-
-    .status-dot::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
-      display: inline-block;
-    }
-
-    .project-preview.soft-preview img {
-      padding: 22px;
-      border-radius: 38px;
-    }
-
     @media (max-width: 980px) {
       .site { grid-template-columns: repeat(6, 1fr); }
-      .span-8, .span-7, .span-6, .span-5, .span-4, .span-3 { grid-column: span 6; }
-      .hero { min-height: 320px; }
-      .phone-mockup { min-height: 420px; }
+      .span-8, .span-7, .span-6, .span-5, .span-4 { grid-column: span 6; }
+      .hero { min-height: 330px; }
     }
 
     @media (max-width: 640px) {
       .shell { width: calc(100% - 16px); margin: 8px auto; border-radius: 22px; }
       .topbar, .hero, .cell { padding-left: 18px; padding-right: 18px; }
-      .meta { gap: 10px; }
+      .topbar { align-items: flex-start; gap: 12px; }
+      .meta { gap: 8px; }
       .hero h1 { font-size: clamp(2.15rem, 10vw, 3.35rem); }
-      .hero-sub { font-size: 0.96rem; }
+      .hero-sub { font-size: .96rem; }
       .title { max-width: none; }
-      .profile-photo { min-height: 320px; }
-      .project-preview { min-height: 320px; }
+      .profile-photo, .project-preview { min-height: 320px; }
+      .profile-photo img, .project-preview img { min-height: 320px; }
       .cell { min-height: 210px; padding-top: 24px; padding-bottom: 24px; }
-      .form-grid,
-      .stats-grid,
-      .project-links { grid-template-columns: 1fr; }
-      .launch-actions { flex-direction: column; }
-      .launch-btn,
-      .send-btn { width: 100%; }
-      .phone-frame { width: 220px; height: 455px; }
+      .stats-grid, .project-grid, .form-grid { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .btn, .send-btn { width: 100%; }
+      .menu span { display: none; }
     }
-
-    .stack-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 16px 0 18px;
-  position: relative;
-  z-index: 1;
-}
-
-.stack-tags span {
-  padding: 8px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(127,127,127,0.03);
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.project-preview {
-  padding: 0;
-  overflow: hidden;
-  min-height: 520px;
-}
-
-.project-preview img {
-  width: 100%;
-  height: 100%;
-  min-height: 520px;
-  object-fit: contain;
-  object-position: top center;
-  display: block;
-  background: #0d0e10;
-}
   </style>
 </head>
 
 <body>
   <div class="shell">
-    <div class="site">
+    <main class="site">
       <div class="topbar full">
         <div class="meta">
           <span class="brand">Dabe · DMC Labs</span>
@@ -729,6 +557,8 @@
           <span id="localTime">loading time...</span>
         </div>
         <div class="menu">
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
           <span>Light / Dark</span>
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☾</button>
         </div>
@@ -736,245 +566,265 @@
 
       <section class="hero full reveal">
         <div>
-          <h1>Hi, I’m Dabe. I build simple projects when I have the time, energy, and focus to do it right.</h1>
+          <h1>Hi, I’m Dabe. I build useful things one idea, one bug, and one coffee at a time.</h1>
           <p class="hero-sub">
-  I’m not coding every second of the day. I have work, family, and a real need to recharge. But when I get the right focus, I like turning simple ideas into useful things people can actually try — like <a href="https://mixmydog.com" target="_blank">MixMyDog.com</a>.
-</p>
+            I build web apps, Android apps, business tools, and small systems through DMC Labs.
+            I’m still learning, still improving, and still very capable of staring at one bug for far too long.
+          </p>
         </div>
       </section>
 
       <section class="cell span-7 reveal">
         <div>
           <div class="kicker">About my work</div>
-          <h2 class="title">Building simple apps, web tools, and digital systems</h2>
+          <h2 class="title">Simple ideas turned into working products</h2>
           <p class="body">
-  I enjoy taking an idea and turning it into something that works. I’m still learning, still improving, but I like building tools that are clear, useful, and easy for regular people to understand.
-</p>
+            Most of my projects start with a real problem, a family idea, or a simple “what if we built this?”
+            I care more about making something useful and understandable than making it look complicated.
+          </p>
           <div class="stats-grid">
-            <div class="stat-box"><strong>Mobile</strong><span>Apps that solve real tasks</span></div>
-            <div class="stat-box"><strong>Web</strong><span>Tools with clean flow</span></div>
-            <div class="stat-box"><strong>Systems</strong><span>Built for everyday use</span></div>
+            <div class="stat-box"><strong>Web</strong><span>Apps & business tools</span></div>
+            <div class="stat-box"><strong>Mobile</strong><span>Android projects</span></div>
+            <div class="stat-box"><strong>Systems</strong><span>Automation & desktop tools</span></div>
           </div>
         </div>
-        <a class="arrow" href="#contact">→</a>
       </section>
 
-      <section class="cell span-5 illustration reveal">
-        <div>
-          <div class="art">◌</div>
-          <div class="caption">quiet focus</div>
-        </div>
+      <section class="cell span-5 profile-photo reveal">
+        <img src="images/dabe-coder.jpg" alt="Dabe working on software projects" />
       </section>
 
       <section class="cell span-4 illustration reveal">
         <div>
           <div class="art">❈</div>
-          <div class="caption">purpose</div>
+          <div class="caption">build with purpose</div>
         </div>
       </section>
 
       <section class="cell span-8 reveal">
         <div>
           <div class="kicker">Approach</div>
-          <h2 class="title">Calm focus, deep thought, and steady execution</h2>
-          <p class="body">I try to build the same way I live — focused, practical, and not rushed. I care about simple layouts, useful features, and small details that make a project feel easier to use.</p>
+          <h2 class="title">Practical first. Clean second. Fancy only when it helps.</h2>
+          <p class="body">
+            I like calm interfaces, clear flows, and features people can understand without reading a manual.
+            If a project solves the problem and feels easy to use, that matters more to me than adding extras just to make it look impressive.
+          </p>
           <div class="feature-list">
-            <div class="feature-item">Simple layouts over clutter</div>
             <div class="feature-item">Useful features over random extras</div>
-            <div class="feature-item">Real projects over perfect ideas</div>
+            <div class="feature-item">Clean interfaces without the “AI template” look</div>
+            <div class="feature-item">Real working projects over perfect unfinished ideas</div>
           </div>
+        </div>
+      </section>
+
+      <section class="cell full reveal" id="work">
+        <div class="section-head">
+          <div class="kicker">Featured work</div>
+          <h2 class="title">Projects I’ve built, launched, or actively develop</h2>
+          <p class="body">
+            Some are public products, some are experiments, and a few are private tools I built because I needed them.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <a class="project-card" href="https://dmcbizhub.com" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="status live">Live SaaS</div>
+              <h3>DMC BizHub</h3>
+              <p>Business management platform for customers, sales, expenses, tasks, reports, teams, and multiple businesses.</p>
+            </div>
+            <div class="mini-meta"><span>Next.js</span><span>Supabase</span><span>Stripe</span></div>
+          </a>
+
+          <a class="project-card" href="https://globewave.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="status testing">Web Live · Android Testing</div>
+              <h3>GlobeWave</h3>
+              <p>Global internet radio app for discovering stations by country, saving favorites, and listening from one simple player.</p>
+            </div>
+            <div class="mini-meta"><span>React</span><span>Radio API</span><span>Android</span></div>
+          </a>
+
+          <a class="project-card" href="https://mixmydog.com" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="status live">Live Product</div>
+              <h3>MixMyDog</h3>
+              <p>AI-powered dog breed mixer built from a family idea and turned into a public web app.</p>
+            </div>
+            <div class="mini-meta"><span>AI</span><span>Supabase</span><span>Stripe</span></div>
+          </a>
+
+          <a class="project-card" href="https://play.google.com/store/apps/details?id=com.dmclabs.loantracker" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="status live">Google Play</div>
+              <h3>Loan Tracker</h3>
+              <p>Private, no-login Android app for tracking borrowers, payments, balances, receipts, and backups.</p>
+            </div>
+            <div class="mini-meta"><span>Android</span><span>PWA</span><span>Offline Data</span></div>
+          </a>
+
+          <a class="project-card" href="https://play.dabechua.com" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="status live">Web Game</div>
+              <h3>What Would You Do?</h3>
+              <p>Interactive decision-story game built around everyday situations, choices, consequences, and replayable paths.</p>
+            </div>
+            <div class="mini-meta"><span>Story Game</span><span>Web</span><span>Audio</span></div>
+          </a>
+
+          <a class="project-card" href="https://dmc-ventures-ph-website.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="status live">Business Website</div>
+              <h3>DMC Ventures PH</h3>
+              <p>Company site bringing Realty, Trading, and DMC Labs together in one clean, responsive home.</p>
+            </div>
+            <div class="mini-meta"><span>Business</span><span>Responsive</span><span>Portfolio</span></div>
+          </a>
+
+          <article class="project-card no-link">
+            <div>
+              <div class="status testing">MVP</div>
+              <h3>Open Stage</h3>
+              <p>Audio-first social room inspired by old-school chat: one room, one stage, live chat, speaker queue, and no video.</p>
+            </div>
+            <div class="mini-meta"><span>Next.js</span><span>Supabase Realtime</span><span>Audio</span></div>
+          </article>
+
+          <article class="project-card no-link">
+            <div>
+              <div class="status private">Private Family Tool</div>
+              <h3>My Budget / DMC Family Budget</h3>
+              <p>Simple family budgeting tools for bills, contributors, payment status, and shared household visibility.</p>
+            </div>
+            <div class="mini-meta"><span>Budgeting</span><span>Family</span><span>Mobile Friendly</span></div>
+          </article>
+
+          <article class="project-card no-link">
+            <div>
+              <div class="status private">Private Windows Project</div>
+              <h3>DMC Family Monitor</h3>
+              <p>Windows activity logger with a background service, local SQLite storage, per-user logs, and a dashboard.</p>
+            </div>
+            <div class="mini-meta"><span>Windows</span><span>SQLite</span><span>Desktop</span></div>
+          </article>
+
+          <a class="project-card" href="https://cerebro-nine-pearl.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="status live">Web Project</div>
+              <h3>Cerebro</h3>
+              <p>A personal journal and assistant project that grew from a simple idea into a larger desktop/voice concept.</p>
+            </div>
+            <div class="mini-meta"><span>Journal</span><span>Assistant</span><span>Experiment</span></div>
+          </a>
+
+          <a class="project-card" href="https://family-bills-simple.vercel.app" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="status live">Earlier Project</div>
+              <h3>Family Budget Split</h3>
+              <p>A lightweight shared-bill tool for dividing household expenses without unnecessary complexity.</p>
+            </div>
+            <div class="mini-meta"><span>Budget</span><span>Web</span><span>Simple UI</span></div>
+          </a>
+
+          <a class="project-card" href="https://loan-tracker-tau.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="status live">Earlier Project</div>
+              <h3>Loan Tracker Web</h3>
+              <p>The browser-based version of the lending tracker that helped shape the Android app.</p>
+            </div>
+            <div class="mini-meta"><span>Web</span><span>Finance Tool</span><span>PWA</span></div>
+          </a>
         </div>
       </section>
 
       <section class="cell span-6 reveal">
         <div>
-          <div class="kicker">Featured work</div>
-          <h2 class="title">Projects I’ve built and launched</h2>
-          <p class="body">A small collection of real apps, experiments, and tools I’ve built while learning, testing ideas, and bringing useful projects online.</p>
-
-          <div class="project-links" aria-label="Project links">
-            <a class="project-link-card" href="https://mixmydog.com" target="_blank" rel="noopener noreferrer">
-              <strong>MixMyDog</strong>
-              <span>Live AI dog breed mixer web app.</span>
-            </a>
-            <a class="project-link-card" href="https://play.google.com/store/apps/details?id=com.dmclabs.loantracker&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
-              <strong>Loan Tracker</strong>
-              <span>Android app live on Google Play.</span>
-            </a>
-            <a class="project-link-card" href="https://family-bills-simple.vercel.app" target="_blank" rel="noopener noreferrer">
-              <strong>Family Budget Split</strong>
-              <span>Simple tool for splitting shared bills.</span>
-            </a>
-            <a class="project-link-card" href="https://cerebro-nine-pearl.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <strong>Cerebro Journal</strong>
-              <span>Private journal with share mode.</span>
-            </a>
-            <a class="project-link-card" href="https://lending-tracker-eight.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <strong>QSP Lending Tracker</strong>
-              <span>Loan tracking concept for lending records.</span>
-            </a>
-            <a class="project-link-card" href="https://loan-tracker-tau.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <strong>Loan Tracker Web</strong>
-              <span>Browser-based version of loan tracking.</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="cell span-6 profile-photo reveal">
-        <img src="images/dabe-coder.jpg" alt="Dabe, developer of DMC Labs" />
-      </section>
-
-      <section class="cell span-6 launch-card reveal">
-        <div>
-          <div class="launch-badge">Live Project • AI Dog Breed Mixer</div>
-
-          <h2 class="title">MixMyDog</h2>
-
+          <div class="status live">Featured · Business SaaS</div>
+          <h2 class="title">DMC BizHub</h2>
           <p class="body">
-            An AI-powered web app that helps people explore possible dog breed mixes through interactive previews and visual generation.
+            One of my biggest builds so far: a multi-business platform with customers, sales, tasks, reports,
+            team roles, permissions, subscriptions, and secure data access.
           </p>
-
-          <div class="launch-points">
-            <div class="launch-point">✔ Mix two dog breeds</div>
-            <div class="launch-point">✔ Generate a visual preview</div>
-            <div class="launch-point">✔ Built for dog lovers, breeders, and curious pet owners</div>
-          </div>
-
-          <p class="small">
-            <strong>Best for:</strong> Exploring fun breed combinations in a simple, visual way.
-          </p>
-
           <div class="stack-tags">
-            <span>AI Image Generation</span>
-            <span>Web App</span>
-            <span>Dog Breeds</span>
-            <span>Interactive UX</span>
+            <span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>Stripe</span><span>RLS</span>
           </div>
-
-          <div class="launch-actions">
-      <a href="https://mixmydog.com" target="_blank" rel="noopener noreferrer" class="launch-btn primary">Live Site</a>
-      <a href="https://github.com/dabewebdev" target="_blank" class="launch-btn">My GitHub</a>
-    </div>
-
-          <p class="trust-line">
-            What started as a simple idea between family and friends slowly became a real public-facing project through DMC Labs.
-          </p>
-  </div>
-</section>
-
-      <section class="cell span-6 project-preview reveal">
-        <img src="images/mixmydog-preview.png" alt="MixMyDog dog breed mixer preview" />
-      </section>
-
-      <section class="cell span-6 launch-card reveal">
-        <div>
-          <div class="launch-badge">Live on Google Play</div>
-
-          <h2 class="title">Simple Loan Tracker</h2>
-
-          <p class="body"><strong>Easy, private, and built for everyday use.</strong></p>
-          <p class="body">
-  A simple Android app for tracking borrowers, payments, and balances. I built it to be easy, private, and useful for everyday lending situations.
-</p>
-
-          <div class="launch-points">
-            <div class="launch-point">✔ No login required</div>
-            <div class="launch-point">✔ Data stays on your device</div>
-            <div class="launch-point">✔ Quick setup</div>
+          <div class="actions">
+            <a class="btn primary" href="https://dmcbizhub.com" target="_blank" rel="noopener noreferrer">Visit DMC BizHub</a>
+            <a class="btn" href="https://github.com/dabewebdev" target="_blank" rel="noopener noreferrer">My GitHub</a>
           </div>
-
-          <div class="launch-actions">
-            <a class="launch-btn primary" href="https://play.google.com/store/apps/details?id=com.dmclabs.loantracker" target="_blank" rel="noopener noreferrer">
-  Get it on Google Play
-</a>
-          </div>
-
-          <p class="trust-line">Now available publicly on Google Play.</p>
-        </div>
-      </section>
-
-      <section class="cell span-6 phone-mockup reveal">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <img src="images/loan-tracker-pic.jpg" alt="Loan Tracker App Preview" />
-          </div>
-        </div>
-      </section>
-
-      <section class="cell span-6 launch-card reveal">
-        <div>
-          <div class="launch-badge status-dot">Android App • In Testing</div>
-
-          <h2 class="title">GlobeWave</h2>
-
-          <p class="body">
-            A simple world radio app for discovering stations from different countries through a clean listening experience. It is currently being refined and tested for Android.
-          </p>
-
-          <div class="launch-points">
-            <div class="launch-point">✔ Global radio station discovery</div>
-            <div class="launch-point">✔ Favorites and simple playback flow</div>
-            <div class="launch-point">✔ Android version in testing</div>
-          </div>
-
-          <div class="stack-tags">
-            <span>Android</span>
-            <span>Radio API</span>
-            <span>Mobile UI</span>
-            <span>In Testing</span>
-          </div>
-
-          <div class="launch-actions">
-            <a class="launch-btn primary" href="https://globewave.vercel.app/" target="_blank" rel="noopener noreferrer">Live Web Preview</a>
-            <a class="launch-btn" href="https://github.com/dabewebdev" target="_blank" rel="noopener noreferrer">My GitHub</a>
-          </div>
-
-          <p class="trust-line">
-            I’m keeping this one honest on the portfolio: it is real, active, and still being improved before a wider release.
-          </p>
         </div>
       </section>
 
       <section class="cell span-6 illustration reveal">
         <div>
-          <div class="art">◍</div>
-          <div class="caption">GlobeWave testing</div>
-          <p class="section-note">A calmer way to show projects that are still growing: clear status, simple purpose, and no fake hype.</p>
-        </div>
-      </section>
-
-      <section class="cell span-4 illustration reveal">
-        <div>
           <div class="art">⌘</div>
-          <div class="caption">clarity</div>
+          <div class="caption">business systems without the clutter</div>
         </div>
       </section>
 
-      <section class="cell span-4 illustration reveal">
+      <section class="cell span-6 reveal">
         <div>
-          <div class="art">⌁</div>
-          <div class="caption">flow</div>
+          <div class="status live">Featured · AI Web App</div>
+          <h2 class="title">MixMyDog</h2>
+          <p class="body">
+            An AI-powered web app that lets people combine two dog breeds and generate a visual idea of the mix.
+            It started as a family idea and became a real public product.
+          </p>
+          <div class="stack-tags">
+            <span>AI Image Generation</span><span>Supabase</span><span>Stripe</span><span>Web App</span>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="https://mixmydog.com" target="_blank" rel="noopener noreferrer">Visit MixMyDog</a>
+          </div>
         </div>
       </section>
 
-      <section class="cell span-4 illustration reveal">
+      <section class="cell span-6 project-preview reveal">
+        <img src="images/mixmydog-preview.png" alt="MixMyDog app preview" />
+      </section>
+
+      <section class="cell span-6 reveal">
         <div>
-          <div class="art">☾</div>
-          <div class="caption">light / dark</div>
+          <div class="status live">Featured · Google Play</div>
+          <h2 class="title">Loan Tracker</h2>
+          <p class="body">
+            A simple Android app for borrowers, payments, balances, receipts, export/import backup, and everyday lending records.
+            No account is required and records stay on the device.
+          </p>
+          <div class="stack-tags">
+            <span>Android</span><span>Offline First</span><span>PWA</span><span>Local Storage</span>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.dmclabs.loantracker" target="_blank" rel="noopener noreferrer">Google Play</a>
+          </div>
         </div>
+      </section>
+
+      <section class="cell span-6 project-preview reveal">
+        <img src="images/loan-tracker-pic.jpg" alt="Loan Tracker Android app preview" />
+      </section>
+
+      <section class="cell span-4 illustration reveal">
+        <div><div class="art">◌</div><div class="caption">quiet focus</div></div>
+      </section>
+      <section class="cell span-4 illustration reveal">
+        <div><div class="art">⌁</div><div class="caption">steady learning</div></div>
+      </section>
+      <section class="cell span-4 illustration reveal">
+        <div><div class="art">☾</div><div class="caption">occasionally debugging at midnight</div></div>
       </section>
 
       <section class="cell full reveal" id="contact">
         <div>
           <div class="kicker">Contact</div>
-          <h2 class="title">Let’s build something thoughtful and useful</h2>
-          <p class="body">If you have a project, an app idea, or a digital tool you want to bring to life, send me a message below.</p>
+          <h2 class="title">Have a useful idea? Tell me about it.</h2>
+          <p class="body">
+            I’m interested in independent web and app projects, practical business tools, and ideas that solve a real problem.
+          </p>
         </div>
 
         <form class="contact-form" action="https://formspree.io/f/xpqnzjjo" method="POST">
           <input type="hidden" name="_subject" value="New portfolio message for Dabe | DMC Labs">
-          
 
           <label class="honeypot-field" aria-hidden="true">
             <span>Leave this blank</span>
@@ -1002,15 +852,12 @@
             <textarea name="message" placeholder="Tell me about your idea, goal, or project." required></textarea>
           </label>
 
-          <div class="form-actions">
-            <button type="submit" class="send-btn">Send message</button>
-            <p class="form-note">Your message will be sent directly to me. I usually respond within a few days when time allows.</p>
-          </div>
+          <button type="submit" class="send-btn">Send message</button>
         </form>
 
-        <p class="footer-note">© 2026 DMC Labs</p>
+        <p class="footer-note">© 2026 DMC Labs · Built by Dabe Chua</p>
       </section>
-    </div>
+    </main>
   </div>
 
   <script>
@@ -1023,13 +870,16 @@
       body.classList.add('dark');
     }
 
+    const syncThemeIcon = () => {
+      themeToggle.textContent = body.classList.contains('dark') ? '☀' : '☾';
+    };
+
+    syncThemeIcon();
+
     themeToggle.addEventListener('click', () => {
       body.classList.toggle('dark');
-      themeToggle.style.transform = 'rotate(180deg)';
-      setTimeout(() => {
-        themeToggle.style.transform = '';
-      }, 260);
       localStorage.setItem('dmc-theme', body.classList.contains('dark') ? 'dark' : 'light');
+      syncThemeIcon();
     });
 
     const timeEl = document.getElementById('localTime');
@@ -1042,11 +892,9 @@
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('show');
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
   </script>
